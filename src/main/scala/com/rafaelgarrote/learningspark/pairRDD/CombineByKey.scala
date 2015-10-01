@@ -31,7 +31,10 @@ object CombineByKey {
 
     val spartitions = c.mapPartitionsWithIndex(myfunc).collect()
 
-    val d = c.combineByKey(List(_), (x:List[String], y:String) => y :: x, (x:List[String], y:List[String]) => x ::: y)
+    val d = c.combineByKey(
+      List(_),
+      (x:List[String], y:String) => y :: x,
+      (x:List[String], y:List[String]) => x ::: y)
     val result = d.collect
 
     println("---------- Example 1 ----------")
