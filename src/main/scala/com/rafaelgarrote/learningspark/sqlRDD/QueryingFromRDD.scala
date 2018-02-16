@@ -44,7 +44,7 @@ object QueryingFromRDD {
     val schema = StructType(schemaString.split(" ").map(fieldName => StructField(fieldName, StringType, true)))
 
     // Convert records of the RDD (people) to Rows.
-    val rowRDD: RDD[Row] = peopleRDD.map(_.split(",")).map(p => Row(p(0), p(1).trim))
+      val rowRDD: RDD[Row] = peopleRDD.map(_.split(",")).map(p => Row(p(0), p(1).trim))
 
     // Apply the schema to the RDD.
     val peopleSchemaRDD = sqlContext.applySchema(rowRDD, schema)

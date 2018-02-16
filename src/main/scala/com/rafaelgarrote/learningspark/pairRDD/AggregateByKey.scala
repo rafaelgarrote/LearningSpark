@@ -8,7 +8,6 @@ import org.apache.spark.SparkContext._
  * Created by rafaelgarrote on 28/9/15.
  */
 object AggregateByKey {
-
   def main(args: Array[String]) {
     val conf = new SparkConf()
       .setAppName("Simple Application")
@@ -19,6 +18,7 @@ object AggregateByKey {
 
     sc.stop()
   }
+
 
   // lets have a look at what is in the partitions
   def myfunc(index: Int, iter: Iterator[(String, Int)]) : Iterator[String] = {
